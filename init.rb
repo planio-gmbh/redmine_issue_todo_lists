@@ -8,6 +8,7 @@ Redmine::Plugin.register :redmine_issue_todo_lists do
   version '1.2'
   url 'https://github.com/canidas/redmine_issue_todo_lists'
   author_url 'mailto:dev@den.cx'
+  hidden true if respond_to?(:hidden)
 
   project_module :issue_todo_lists do
     permission :add_issue_todo_lists, {:issue_todo_lists => [:new, :create]}
