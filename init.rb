@@ -21,7 +21,7 @@ Redmine::Plugin.register :redmine_issue_todo_lists do
     permission :add_issue_todo_list_items_context_menu, {:issue_todo_lists => [:bulk_allocate_issues]}
   end
 
-  menu :project_menu, :issue_todo_lists, { :controller => 'issue_todo_lists', :action => 'index' }, :caption => :issue_todo_lists_title, :param => :project_id, :after => :activity
+  menu :project_menu, :issue_todo_lists, { :controller => 'issue_todo_lists', :action => 'index' }, :caption => :issue_todo_lists_title, :param => :project_id, before: :calendar
 
   Rails.configuration.to_prepare do
     unless Project.included_modules.include? RedmineIssueTodoLists::ProjectPatch
